@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="selectableItemBackground">@drawable/bg_selectable_item</item>
+        <item name="selectableItemBackgroundBorderless">@drawable/bg_selectable_item_oval</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+
+    <style name="AppTheme.PhotoViewActivity">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/icon"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@color/white"
+        tools:ignore="VectorDrawableCompat" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/medium_text_margin"
+        android:layout_marginRight="@dimen/medium_text_margin"
+        android:layout_weight="1"
+        android:textColor="@color/text_grey_1"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-8dp"
+        android:layout_marginRight="-8dp"
+        android:background="@drawable/bg_selectable_item_oval"
+        android:padding="8dp"
+        app:srcCompat="@drawable/ic_setting" />
+</LinearLayout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?selectableItemBackground"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/medium_text_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/medium_text_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/icon"
+                style="@style/UserIcon" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/nickname"
+                        style="@style/BlogUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxWidth="150dp"
+                        android:maxLines="1" />
+
+                    <TextView
+                        android:id="@+id/type"
+                        style="@style/BlogUserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/medium_text_margin"
+                        android:textColor="@color/grey_500" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/time"
+                    style="@style/TextAppearance.AppCompat.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/icon_size"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin">
+
+            <TextView
+                android:id="@+id/content"
+                style="@style/BlogContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_text_margin" />
+
+            <ImageView
+                android:id="@+id/img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_text_margin"
+                android:adjustViewBounds="true"
+                android:maxHeight="300dp"
+                android:scaleType="fitCenter"
+                android:visibility="gone" />
+
+            <org.sufficientlysecure.htmltextview.HtmlTextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_text_margin"
+                android:background="@color/light_grey"
+                android:padding="@dimen/medium_text_margin"
+                android:textColor="@color/text_grey_1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/medium_text_margin"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.wegdut.wegdut.view.FakeInput
+                    android:id="@+id/btn_reply"
+                    style="@style/FakeInput"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    app:icon="@drawable/ic_feather"
+                    app:text="回复" />
+
+                <com.wegdut.wegdut.view.ShineButton
+                    android:id="@+id/btn_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/activity_horizontal_margin"
+                    app:activeColor="@color/colorPrimary"
+                    app:color="@color/grey_400"
+                    app:icon="@drawable/ic_thumb_up"
+                    app:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/badge"
+        android:layout_width="8dp"
+        android:layout_height="8dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_badge"
+        android:visibility="gone" />
+</FrameLayout>

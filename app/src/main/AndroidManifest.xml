@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.wegdut.wegdut">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <application
+        android:name="com.wegdut.wegdut.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.wegdut.wegdut"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity
+            android:name="com.wegdut.wegdut.MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wegdut.wegdut.ui.photo_view.PhotoViewActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.post_details.PostDetailsActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.course_table.CourseTableActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.lost_center.LostCenterActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.news.NewsActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.send_post.SendPostActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.login.LoginActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.email_register.EmailRegisterActivity" />
+        <activity android:name=".ui.student_register.StudentRegisterActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.setting.SettingActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.simple_html_page.SimpleHtmlPageActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.student_verification.StudentVerificationActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.student_verification.StudentVerificationCheckActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.news_details.NewsDetailsActivity" />
+        <activity android:name="com.wegdut.wegdut.ui.user_modification.UserModificationActivity" />
+        <activity android:name=".ui.exam_score.ExamScoreActivity" />
+    </application>
+
+</manifest>

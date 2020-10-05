@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:stateListAnimator="@animator/appbar_scroll_elevation"
+        tools:ignore="UnusedAttribute">
+
+        <com.wegdut.wegdut.view.TabView
+            android:id="@+id/tab_view"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:textSize="18dp"
+            app:activeColor="@color/grey_800"
+            app:barColor="@color/blue_500"
+            app:barHeight="4dp"
+            app:barOffset="5dp"
+            app:barWidth="15dp"
+            app:color="@color/grey_800"
+            app:fillGap="false"
+            tools:ignore="SpUsage" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

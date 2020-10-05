@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/post"
+        android:icon="@drawable/ic_star"
+        android:title="@string/store"
+        app:iconTint="?colorControlNormal"
+        app:showAsAction="ifRoom" />
+    <item
+        android:icon="@drawable/ic_more"
+        android:title="@string/menu"
+        app:iconTint="?colorControlNormal"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/report"
+                android:icon="@drawable/ic_report"
+                android:title="@string/report"
+                app:iconTint="?colorControlNormal" />
+        </menu>
+    </item>
+</menu>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme.PhotoViewActivity">
+        <item name="android:windowSharedElementEnterTransition">
+            @transition/photo_activity_shared_element
+        </item>
+        <item name="android:windowSharedElementExitTransition">
+            @transition/photo_activity_shared_element
+        </item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowEnterTransition">@transition/photo_activity_window</item>
+        <item name="android:windowExitTransition">@transition/photo_activity_window</item>
+    </style>
+
+    <style name="AppTheme.MainActivity">
+        <item name="android:windowEnterTransition">@transition/photo_activity_window</item>
+        <item name="android:windowExitTransition">@transition/photo_activity_window</item>
+    </style>
+
+</resources>

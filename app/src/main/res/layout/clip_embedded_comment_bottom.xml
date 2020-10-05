@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/medium_text_margin"
+    android:paddingBottom="@dimen/medium_text_margin"
+    app:layout_constraintBottom_toBottomOf="parent">
+
+    <com.wegdut.wegdut.view.FakeInput
+        android:id="@+id/comment_fake_input"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_fake_input"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        app:color="@color/grey_500"
+        app:icon="@drawable/ic_feather"
+        app:size="16dp"
+        app:text="@string/comment_default_hint" />
+
+    <LinearLayout
+        android:id="@+id/btn_like_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <com.wegdut.wegdut.view.ShineButton
+            android:id="@+id/btn_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:activeColor="@color/blue_500"
+            app:color="@color/btn_light_grey"
+            app:icon="@drawable/ic_thumb_up"
+            app:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/btn_like_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/shine_btn_text"
+            android:textSize="12dp"
+            tools:ignore="SpUsage" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/btn_reply_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin">
+
+        <com.wegdut.wegdut.view.ShineButton
+            android:id="@+id/btn_reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:activeColor="@color/blue_500"
+            app:color="@color/btn_light_grey"
+            app:effectType="point"
+            app:icon="@drawable/ic_comment"
+            app:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/btn_reply_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/shine_btn_text"
+            android:textSize="12dp"
+            tools:ignore="SpUsage" />
+    </LinearLayout>
+</LinearLayout>

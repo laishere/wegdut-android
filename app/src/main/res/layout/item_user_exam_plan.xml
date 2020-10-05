@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/exam_plan_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/activity_horizontal_margin"
+    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+    android:background="@drawable/bg_user_item"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="考试安排"
+        android:textColor="@color/text_grey_2"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/exam_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:textColor="@color/text_grey_1"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.wegdut.wegdut.view.CourseProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="4dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            app:activeColor="@color/colorPrimary"
+            app:color="@color/light_grey"
+            app:footerHeight="0dp"
+            app:headHeight="0dp"
+            app:itemHeight="65dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/exam_plan_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</LinearLayout>

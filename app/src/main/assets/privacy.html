@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>隐私相关</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            font-size: 3vmin;
+        }
+        *{
+            user-select: none;
+        }
+        .wrapper{
+            padding: 1em;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            padding: .5em 0;
+            position: relative;
+        }
+
+        .title::after{
+            content: "";
+            display: block;
+            width: 1.5em;
+            height: 0.3em;
+            border-radius: 0.15em;
+            background: #2196F3;
+            bottom: 0;
+        }
+
+        p{
+            font-size: 1.4rem;
+            margin: 0.5em 0;
+            text-align: justify;
+        }
+        p::first-letter{
+            margin-left: 2em;
+        }
+        .contact{
+            text-align: center;
+        }
+        a{
+            text-decoration: none;
+            color: #2196F3;
+            font-size: 1.5rem;
+            padding: .5em 0;
+            display: inline-block;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="title">通信</div>
+    <p>APP与后端服务器通信采用https协议，一般而言，这是安全的。</p>
+    <p>不过也有一些情况会降低https的安全性，比如用户添加某些软件提供的证书到信任列表，授予某些不可信软件root权限，网络就可能会遭到中间人攻击而处于被监控状态。</p>
+    <div class="title">敏感信息</div>
+    <p>用户使用本应用过程中可能会授予本应用某些敏感信息的使用权限。比如学号、密码以及由后端爬虫产生的课表信息、考试安排和考试成绩等等。
+        对于这些和特定人绑定、可以用于确认特定人身份和与用户相关权益密切相关的信息，都会被后端通过AES加密方式加密后再存到数据库，也就是说，用户不需要担心数据库管理员在管理数据的时候看到其敏感信息。</p>
+    <p>WEGDUT承诺敏感信息不提供给除用户自身以外的任何人，包括开发者、运营者。WEGDUT只询问和获取最低限度的敏感信息以提供对应的服务。</p>
+</div>
+</body>
+
+</html>

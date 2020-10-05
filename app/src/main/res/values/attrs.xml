@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="text" format="string" />
+    <attr name="color" format="color" />
+    <attr name="icon" format="reference" />
+    <attr name="size" format="dimension" />
+    <attr name="iconSize" format="dimension" />
+    <attr name="activeColor" format="color" />
+    <attr name="textSize" format="dimension" />
+    <attr name="ratio" format="float" />
+
+    <declare-styleable name="ShineButton">
+        <attr name="icon" />
+        <attr name="text" />
+        <attr name="color" />
+        <attr name="activeColor" />
+        <attr name="textSize" />
+        <attr name="effectType" format="enum">
+            <enum name="line" value="0" />
+            <enum name="point" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="HeightRatioFrameLayout">
+        <attr name="ratio" />
+    </declare-styleable>
+
+    <declare-styleable name="FakeInput">
+        <attr name="size" />
+        <attr name="text" />
+        <attr name="iconSize" />
+        <attr name="color" />
+        <attr name="icon" />
+    </declare-styleable>
+
+    <declare-styleable name="TabView">
+        <attr name="android:textSize" />
+        <attr name="activeColor" />
+        <attr name="color" />
+        <attr name="barColor" format="color" />
+        <attr name="barWidth" format="dimension" />
+        <attr name="barHeight" format="dimension" />
+        <attr name="barOffset" format="dimension" />
+        <attr name="maxBarWidth" format="dimension" />
+        <attr name="titles" format="reference" />
+        <attr name="fillGap" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CourseProgressBar">
+        <attr name="headHeight" format="dimension" />
+        <attr name="itemHeight" format="dimension" />
+        <attr name="footerHeight" format="dimension" />
+        <attr name="color" />
+        <attr name="activeColor" />
+    </declare-styleable>
+
+    <declare-styleable name="WeekTabs">
+        <attr name="maxWidth" format="dimension" />
+    </declare-styleable>
+</resources>

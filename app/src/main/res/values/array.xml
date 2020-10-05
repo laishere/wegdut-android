@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="embedded_comment_tabs">
+        <item>评论</item>
+    </array>
+</resources>

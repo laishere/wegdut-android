@@ -1,0 +1,217 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="DangerAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="buttonBarPositiveButtonStyle">@style/DangerPositiveButton</item>
+    </style>
+
+    <style name="DangerPositiveButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="rippleColor">@color/ripple_error</item>
+        <item name="android:textColor">@color/error_text</item>
+    </style>
+
+    <style name="BaseBottomInputDialog" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SimpleDialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlActivated">@color/colorPrimary</item>
+    </style>
+
+    <style name="BottomInputDialog" parent="BaseBottomInputDialog" />
+
+    <style name="AppTheme" parent="BaseAppTheme" />
+
+    <!--    home fragment style-->
+    <style name="MoreButton" parent="TextAppearance.AppCompat.Menu">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:drawableRight">@drawable/ic_chevron_right_more_button</item>
+    </style>
+
+    <style name="HomeCourseTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/grey_600</item>
+    </style>
+
+    <style name="HomeSmallTitle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="HomeNotificationTitle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/grey_700</item>
+    </style>
+
+    <style name="HomeCourseLabel">
+        <item name="android:scaleType">fitXY</item>
+        <item name="android:tint">@color/white</item>
+        <item name="android:layout_width">@dimen/home_course_label_size</item>
+        <item name="android:layout_height">@dimen/home_course_label_size</item>
+        <item name="android:padding">4dp</item>
+        <item name="android:background">@drawable/bg_home_course_label</item>
+    </style>
+
+    <style name="HomeCourseLabel.Finished">
+        <item name="android:src">@drawable/ic_check</item>
+    </style>
+
+    <style name="HomeCourseLabel.Running">
+        <item name="android:src">@drawable/ic_clock</item>
+    </style>
+
+    <style name="UserIcon">
+        <item name="android:layout_width">@dimen/icon_size</item>
+        <item name="android:layout_height">@dimen/icon_size</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:src">@drawable/shape_rect_image_placeholder</item>
+    </style>
+
+    <style name="HomeLostItemLabel" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:minWidth">@dimen/icon_size</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="SmallThumbnail">
+        <item name="android:layout_width">@dimen/small_thumbnail_size</item>
+        <item name="android:layout_height">@dimen/small_thumbnail_size</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:background">@color/light_grey</item>
+    </style>
+
+    <!--    explore fragment style-->
+
+    <style name="BlogUserName">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_grey_1</item>
+    </style>
+
+    <style name="BlogContent">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/text_grey_1</item>
+    </style>
+
+    <style name="BlogShineButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="color">@color/btn_light_grey</item>
+        <item name="activeColor">@color/colorPrimary</item>
+        <item name="textSize">12dp</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="ArticleItemTitle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:textColor">@color/grey_700</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="ArticleItemBottomText" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">@color/grey_600</item>
+    </style>
+
+    <style name="ArticleItemBottomText.Label">
+        <item name="android:textColor">@color/blue_600</item>
+    </style>
+
+    <style name="MediumShadowTitle" parent="TextAppearance.AppCompat.Medium">
+        <item name="android:shadowColor">#7F000000</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowDx">1.5</item>
+        <item name="android:shadowDy">1.5</item>
+    </style>
+
+    <style name="MediumShadowTitle.Inverse">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--    photo view activity-->
+
+    <style name="ToolbarLightIcon" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/white</item>
+    </style>
+
+    <style name="FakeInput">
+        <item name="android:layout_height">@dimen/fake_input_height</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/fake_input_radius</item>
+        <item name="android:paddingRight">@dimen/fake_input_radius</item>
+        <item name="color">@color/icon_grey</item>
+        <item name="size">@dimen/fake_input_text_size</item>
+        <item name="android:drawablePadding">12dp</item>
+        <item name="android:background">@drawable/bg_fake_input</item>
+    </style>
+
+    <style name="ExploreDetailsShineButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="color">@color/icon_grey</item>
+        <item name="activeColor">@color/colorPrimary</item>
+        <item name="textSize">16dp</item>
+        <item name="android:paddingTop">@dimen/activity_vertical_margin</item>
+        <item name="android:paddingBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="CommentDetailsShineButton" parent="ExploreDetailsShineButton">
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+    </style>
+
+    <style name="error_text">
+        <item name="android:textColor">@color/error</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="CommentUserName">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/grey_800</item>
+    </style>
+
+    <style name="PrimaryRoundedButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/bg_btn_primary_rounded</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:height">@dimen/btn_normal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:paddingLeft">32dp</item>
+        <item name="android:paddingRight">32dp</item>
+    </style>
+
+    <style name="BottomOptionDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomOptionDialog.BottomSheetStyle</item>
+    </style>
+
+    <style name="BottomOptionDialog.BottomSheetStyle" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/BottomOptionDialog.ShapeAppearance</item>
+    </style>
+
+    <style name="BottomOptionDialog.ShapeAppearance">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">@dimen/bottom_sheet_dialog_corner</item>
+        <item name="cornerSizeTopLeft">@dimen/bottom_sheet_dialog_corner</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="BottomListDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/BottomOptionDialog.BottomSheetStyle</item>
+    </style>
+
+</resources>

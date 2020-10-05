@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/score"
+        android:icon="@drawable/ic_score"
+        android:title="成绩查询"
+        app:iconTint="@color/user_menu" />
+    <item
+        android:id="@+id/pe_score"
+        android:icon="@drawable/ic_pe"
+        android:title="体测成绩"
+        app:iconTint="@color/user_menu" />
+    <item
+        android:id="@+id/library"
+        android:icon="@drawable/ic_qr_code"
+        android:title="图书馆码"
+        app:iconTint="@color/user_menu" />
+    <item
+        android:id="@+id/classroom"
+        android:icon="@drawable/ic_building"
+        android:title="空教室"
+        app:iconTint="@color/user_menu" />
+    <item
+        android:id="@+id/calendar"
+        android:icon="@drawable/ic_calendar"
+        android:title="校历查询"
+        app:iconTint="@color/user_menu" />
+    <item
+        android:id="@+id/construction"
+        android:icon="@drawable/ic_construction"
+        android:title="敬请期待"
+        app:iconTint="@color/user_menu" />
+</menu>

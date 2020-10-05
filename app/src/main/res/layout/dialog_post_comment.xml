@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/img_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/medium_text_margin"
+        android:visibility="gone">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:adjustViewBounds="true"
+            android:maxWidth="200dp"
+            android:maxHeight="200dp"
+            android:scaleType="centerInside" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_delete_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:background="@drawable/bg_selectable_item_oval"
+            android:padding="@dimen/medium_text_margin"
+            android:tint="@color/error_text"
+            app:srcCompat="@drawable/ic_delete" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/context_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/medium_text_margin">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/icon"
+            android:layout_width="18dp"
+            android:layout_height="18dp" />
+
+        <TextView
+            android:id="@+id/context_abstract"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/medium_text_margin"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/text_grey_2" />
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:autofillHints="no"
+        android:background="@drawable/bg_post_comment_input"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:maxLines="5"
+        android:padding="@dimen/medium_text_margin"
+        android:scrollbars="vertical"
+        android:textColor="@color/text_grey_1"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:gravity="end"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/medium_text_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/medium_text_margin">
+
+        <ImageButton
+            android:id="@+id/btn_pick_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_selectable_item_oval"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:tint="@color/icon_grey"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_image" />
+
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="-8dp"
+            android:background="@drawable/bg_selectable_item_oval"
+            android:padding="8dp"
+            android:scaleType="fitCenter"
+            android:tint="@color/icon_grey"
+            app:srcCompat="@drawable/ic_send" />
+    </LinearLayout>
+</LinearLayout>

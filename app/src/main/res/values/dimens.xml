@@ -1,0 +1,33 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="line_width">1dp</dimen>
+    <dimen name="thick_line_width">4dp</dimen>
+    <dimen name="home_course_big_label_size">36dp</dimen>
+    <dimen name="home_course_big_label_corner">18dp</dimen>
+    <dimen name="home_course_label_size">20dp</dimen>
+    <dimen name="home_course_label_corner">10dp</dimen>
+    <dimen name="home_course_label_margin">8dp</dimen>
+    <dimen name="home_course_item_margin">30dp</dimen>
+    <dimen name="home_course_item_margin_top">30dp</dimen>
+    <dimen name="home_item_corner">8dp</dimen>
+    <dimen name="icon_size">36dp</dimen>
+    <dimen name="icon_radius">18dp</dimen>
+    <dimen name="small_thumbnail_size">36dp</dimen>
+    <dimen name="medium_line_width">2dp</dimen>
+    <dimen name="medium_text_margin">8dp</dimen>
+    <dimen name="circular_progress_bar_size">24dp</dimen>
+    <dimen name="small_label_radius">4dp</dimen>
+    <dimen name="ArticleImageRadius">4dp</dimen>
+    <dimen name="ArticleColumnPageMargin">32dp</dimen>
+    <dimen name="ToolbarMaxElevation">4dp</dimen>
+    <dimen name="fake_input_text_size">16dp</dimen>
+    <dimen name="fake_input_height">32dp</dimen>
+    <dimen name="fake_input_radius">16dp</dimen>
+    <dimen name="course_day_label_size">16dp</dimen>
+    <dimen name="setting_text_size">16sp</dimen>
+    <dimen name="btn_normal">50dp</dimen>
+    <dimen name="btn_normal_rounded_corner">25dp</dimen>
+    <dimen name="bottom_sheet_dialog_corner">32dp</dimen>
+</resources>

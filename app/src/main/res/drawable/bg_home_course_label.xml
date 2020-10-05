@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_selected="true">
+        <shape>
+            <corners android:radius="@dimen/home_course_label_corner" />
+            <solid android:color="@color/colorPrimary" />
+        </shape>
+    </item>
+    <item android:state_hovered="true">
+        <shape>
+            <corners android:radius="@dimen/home_course_label_corner" />
+            <solid android:color="@color/colorPrimary" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners android:radius="@dimen/home_course_label_corner" />
+            <solid android:color="@color/grey_300" />
+        </shape>
+    </item>
+</selector>
