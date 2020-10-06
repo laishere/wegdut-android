@@ -5,6 +5,7 @@ import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
+import androidx.appcompat.content.res.AppCompatResources
 import com.wegdut.wegdut.R
 
 class FakeInput(context: Context, attrs: AttributeSet) : View(context, attrs) {
@@ -22,7 +23,8 @@ class FakeInput(context: Context, attrs: AttributeSet) : View(context, attrs) {
         val color = ta.getColor(R.styleable.FakeInput_color, 0)
         val size = ta.getDimensionPixelSize(R.styleable.FakeInput_size, 0);
         text = ta.getString(R.styleable.FakeInput_text)!!
-        drawable = ta.getDrawable(R.styleable.FakeInput_icon)!!
+        val drawableId = ta.getResourceId(R.styleable.FakeInput_icon, 0)
+        drawable = AppCompatResources.getDrawable(context, drawableId)!!
         val iconSize = ta.getDimensionPixelSize(R.styleable.FakeInput_iconSize, size)
         ta.recycle()
         val colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
