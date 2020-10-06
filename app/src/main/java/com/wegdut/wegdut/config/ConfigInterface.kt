@@ -18,4 +18,5 @@ interface ConfigInterface {
     val ossEndpoint: String
     val fileProviderAuthorities: String
     val homeNewsLimit: Int
+    val buglyAppId: String
 }

@@ -2,10 +2,11 @@ package com.wegdut.wegdut
 
 import android.content.Context
 import androidx.multidex.MultiDex
+import com.tencent.bugly.crashreport.CrashReport
+import com.wegdut.wegdut.config.Config
 import com.wegdut.wegdut.data.user.LoginRepository
 import com.wegdut.wegdut.data.user.User
 import com.wegdut.wegdut.di.DaggerAppComponent
-import com.wegdut.wegdut.room.v1.AppDatabaseV1
 import com.wegdut.wegdut.utils.ApiUtils
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
@@ -15,8 +16,6 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class MyApplication : DaggerApplication() {
-    @Inject
-    lateinit var appDatabaseV1: AppDatabaseV1
 
     @Inject
     lateinit var loginRepository: LoginRepository
@@ -40,6 +39,7 @@ class MyApplication : DaggerApplication() {
     override fun onCreate() {
         ApiUtils.initApi(this)
         super.onCreate()
+        CrashReport.initCrashReport(applicationContext, Config.buglyAppId, BuildConfig.DEBUG)
         loadUser()
     }
 
