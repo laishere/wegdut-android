@@ -1,8 +1,8 @@
 package com.wegdut.wegdut.scroll
 
 import com.nhaarman.mockitokotlin2.*
+import com.wegdut.wegdut.CoroutinesModelTestUtils.runBlocking
 import com.wegdut.wegdut.MyLog
-import com.wegdut.wegdut.PresenterTestUtils.runBlocking
 import com.wegdut.wegdut.data.LoadStatus
 import org.junit.Before
 import org.junit.Test

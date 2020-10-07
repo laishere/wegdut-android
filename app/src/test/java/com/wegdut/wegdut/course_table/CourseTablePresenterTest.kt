@@ -2,8 +2,8 @@ package com.wegdut.wegdut.course_table
 
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.inOrder
+import com.wegdut.wegdut.CoroutinesModelTestUtils.runBlocking
 import com.wegdut.wegdut.MyLog
-import com.wegdut.wegdut.PresenterTestUtils.runBlocking
 import com.wegdut.wegdut.data.course_table.CourseTableData
 import com.wegdut.wegdut.data.course_table.CourseTableRepository
 import com.wegdut.wegdut.ui.course_table.CourseTableContract

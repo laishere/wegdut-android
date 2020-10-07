@@ -3,8 +3,8 @@ package com.wegdut.wegdut.email_register
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.inOrder
 import com.wegdut.wegdut.ApiTestUtils
+import com.wegdut.wegdut.CoroutinesModelTestUtils.runBlocking
 import com.wegdut.wegdut.MyLog
-import com.wegdut.wegdut.PresenterTestUtils.runBlocking
 import com.wegdut.wegdut.api.RegisterApi
 import com.wegdut.wegdut.ui.email_register.EmailRegisterContract
 import com.wegdut.wegdut.ui.email_register.EmailRegisterPresenter

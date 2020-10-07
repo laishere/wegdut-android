@@ -1,7 +1,7 @@
 package com.wegdut.wegdut.user
 
+import com.wegdut.wegdut.CoroutinesModelTestUtils.runBlocking
 import com.wegdut.wegdut.MyLog
-import com.wegdut.wegdut.PresenterTestUtils.runBlocking
 import com.wegdut.wegdut.data.edu.exam_plan.ExamPlan
 import com.wegdut.wegdut.data.user.UserRepository
 import com.wegdut.wegdut.ui.user.UserContract

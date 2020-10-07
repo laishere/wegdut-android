@@ -4,8 +4,8 @@ import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.anyOrNull
 import com.nhaarman.mockitokotlin2.inOrder
 import com.nhaarman.mockitokotlin2.never
+import com.wegdut.wegdut.CoroutinesModelTestUtils.runBlocking
 import com.wegdut.wegdut.MyLog
-import com.wegdut.wegdut.PresenterTestUtils.runBlocking
 import com.wegdut.wegdut.data.LoadStatus
 import org.junit.Before
 import org.junit.Test
