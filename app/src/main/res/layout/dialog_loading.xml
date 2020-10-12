@@ -1,37 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_dialog_rounded"
-    android:gravity="center_horizontal"
-    android:minWidth="150dp"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_horizontal_margin">
+    android:layout_margin="8dp"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:contentPadding="@dimen/activity_horizontal_margin">
 
-    <FrameLayout
-        android:layout_width="30dp"
-        android:layout_height="30dp">
-
-        <androidx.core.widget.ContentLoadingProgressBar
-            android:id="@+id/progress_bar"
-            style="?android:progressBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/icon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="invisible"
-            app:tint="@color/loading_success_error" />
-    </FrameLayout>
-
-    <TextView
-        android:id="@+id/action"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/medium_text_margin"
-        android:textColor="@color/loading_success_error"
-        android:textSize="14sp" />
-</LinearLayout>
+        android:gravity="center_horizontal"
+        android:minWidth="150dp"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="30dp"
+            android:layout_height="30dp">
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/icon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible"
+                app:tint="@color/loading_success_error" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_text_margin"
+            android:textColor="@color/loading_success_error"
+            android:textSize="14sp" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
