@@ -15,7 +15,7 @@ class CourseTableAdapter : ListRVAdapter<WeekCourse, CourseTableAdapter.ViewHold
         private val courseTable: CourseTable = itemView as CourseTable
         var onCourseItemClickListener: CourseTable.OnCourseItemClickListener? = null
         override fun bind(data: WeekCourse) {
-            courseTable.weekCourse = data
+            courseTable.setWeekCourse(data)
             courseTable.onCourseItemClickListener = onCourseItemClickListener
         }
     }

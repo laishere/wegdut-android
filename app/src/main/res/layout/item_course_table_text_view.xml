@@ -4,7 +4,10 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/bg_course_table_text_view"
-    android:padding="2dp">
+    android:paddingLeft="2dp"
+    android:paddingTop="3dp"
+    android:paddingRight="2dp"
+    android:paddingBottom="3dp">
 
     <TextView
         android:id="@+id/name"
@@ -13,7 +16,7 @@
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="@color/white"
-        android:textSize="12dp"
+        android:textSize="10dp"
         tools:ignore="SpUsage" />
 
     <TextView
