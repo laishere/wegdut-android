@@ -18,6 +18,8 @@
             android:id="@+id/tab_view"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
             android:textSize="18dp"
             app:activeColor="@color/grey_800"
             app:barColor="@color/blue_500"

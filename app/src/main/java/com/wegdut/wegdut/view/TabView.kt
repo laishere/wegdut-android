@@ -28,7 +28,10 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
     private val tabWrapper: TabWrapper = TabWrapper(context, this)
 
     init {
-        tabWrapper.layoutParams = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
+        tabWrapper.layoutParams =
+            LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT).apply {
+                marginStart = -tabWrapper.tabPadding
+            }
         tabWrapper.orientation = LinearLayout.HORIZONTAL
         isHorizontalScrollBarEnabled = false
         addView(tabWrapper)
@@ -74,6 +77,12 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
         tabWrapper.onTitleChanged()
     }
 
+    fun setTitles(titles: List<CharSequence>) {
+        tabWrapper.titles.clear()
+        tabWrapper.titles.addAll(titles)
+        tabWrapper.onTitleChanged()
+    }
+
     fun getOrCreateBadge(index: Int): BadgeDrawable? {
         return tabWrapper.getOrCreateBadge(index)
     }
@@ -97,6 +106,8 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
     private class TabWrapper(context: Context, private val parentView: HorizontalScrollView) :
         LinearLayout(context) {
         private var tabPosition = 0f
+        val tabPadding = UIUtils.dp2px(context, 12f)
+
         var selectedTab = 0
             set(value) {
                 if (field in 0 until childCount)
@@ -170,8 +181,7 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
 
         private fun getTab(): View {
             val item = TabItem(context)
-            val padding = UIUtils.dp2px(context, 16f)
-            item.setPadding(padding, 0, padding, 0)
+            item.setPadding(tabPadding, 0, tabPadding, 0)
             val lp = LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT)
             lp.weight = if (fillGap) 1f else 0f
             item.layoutParams = lp
@@ -237,7 +247,7 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
         }
 
         private fun drawBar(canvas: Canvas) {
-            if (childCount == 0) return
+            if (childCount == 0 || barHeight == 0) return
             val r = barHeight / 2f
             paint.color = barColor
             canvas.drawRoundRect(barBound, r, r, paint)
@@ -250,7 +260,7 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
         }
 
         private fun calculateBarBound() {
-            if (childCount == 0) return
+            if (childCount == 0 || barHeight == 0) return
             val t = (height + textSize) / 2f + barOffset
             val b = t + barHeight
             val i = floor(tabPosition).toInt()
@@ -280,8 +290,8 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
         }
 
         fun moveTo(index: Int, smooth: Boolean = true) {
-            if (smooth) {
-                objectAnimator.cancel()
+            objectAnimator.cancel()
+            if (smooth && barHeight > 0) {
                 if (abs(tabPosition - index) > 1f) {
                     val d = 0.3f
                     tabPosition = index + if (index > tabPosition) -d
@@ -296,7 +306,7 @@ class TabView(context: Context, attrs: AttributeSet?) : HorizontalScrollView(con
         }
 
         private fun onTabSelected() {
-            if (selectedTab !in 0 until childCount) return
+            if (selectedTab !in 0 until childCount || parentView.width == 0) return
             val selectedChild = getChildAt(selectedTab)
             val cx = selectedChild.x + selectedChild.width / 2f
             val visibleWidth = parentView.width - parentView.paddingLeft - parentView.paddingRight
