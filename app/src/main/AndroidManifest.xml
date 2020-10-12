@@ -44,7 +44,6 @@
         <activity android:name="com.wegdut.wegdut.ui.photo_view.PhotoViewActivity" />
         <activity android:name="com.wegdut.wegdut.ui.post_details.PostDetailsActivity" />
         <activity android:name="com.wegdut.wegdut.ui.course_table.CourseTableActivity" />
-        <activity android:name="com.wegdut.wegdut.ui.lost_center.LostCenterActivity" />
         <activity android:name="com.wegdut.wegdut.ui.news.NewsActivity" />
         <activity android:name="com.wegdut.wegdut.ui.send_post.SendPostActivity" />
         <activity android:name="com.wegdut.wegdut.ui.login.LoginActivity" />
