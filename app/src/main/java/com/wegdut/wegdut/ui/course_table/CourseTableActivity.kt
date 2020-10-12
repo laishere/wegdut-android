@@ -9,17 +9,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.viewpager2.widget.ViewPager2
 import com.wegdut.wegdut.R
 import com.wegdut.wegdut.data.course_table.CourseTableData
 import com.wegdut.wegdut.data.edu.Term
 import com.wegdut.wegdut.data.edu.course.Course
+import com.wegdut.wegdut.dialog.CourseDetailsDialog
 import com.wegdut.wegdut.dialog.CourseTermOptionDialog
 import com.wegdut.wegdut.helper.SimpleTimer
 import com.wegdut.wegdut.ui.ListRVAdapter
-import com.wegdut.wegdut.utils.CourseUtils
 import com.wegdut.wegdut.utils.DateUtils
 import com.wegdut.wegdut.utils.MessageUtils
 import com.wegdut.wegdut.utils.UIUtils
@@ -45,12 +44,11 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
     private var terms: List<Term>? = null
     private var termsMap = mutableMapOf<Pair<Int, Int>, Term>()
     private lateinit var weekTextView: TextView
-    private lateinit var courseInfoDialog: AlertDialog
-    private lateinit var courseInfoViewHolder: CourseInfoViewHolder
     private lateinit var errorTextView: TextView
     private lateinit var termWrapper: View
     private lateinit var termTextView: TextView
     private val termOptionDialog = CourseTermOptionDialog(this)
+    private val courseDetailsDialog = CourseDetailsDialog(this)
     private val dayViews = mutableListOf<DayViewHolder>()
     private var realActiveDay = -1
     private var currentWeek = 0
@@ -132,6 +130,7 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
     override fun onDestroy() {
         presenter.unsubscribe()
         presenter.stop()
+        courseDetailsDialog.dismiss()
         super.onDestroy()
     }
 
@@ -185,7 +184,7 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
     }
 
     private val onCourseItemClickListener = object : CourseTable.OnCourseItemClickListener {
-        override fun onClick(course: Course) {
+        override fun onClick(course: List<Course>) {
             showDialog(course)
         }
     }
@@ -322,42 +321,7 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
         }
     }
 
-    private fun showDialog(course: Course) {
-        if (!this::courseInfoDialog.isInitialized)
-            setupDialog()
-        courseInfoViewHolder.bind(course)
-        courseInfoDialog.show()
-    }
-
-    private fun setupDialog() {
-        val view = LayoutInflater.from(this).inflate(R.layout.dialog_course_info, null, false)
-        courseInfoViewHolder = CourseInfoViewHolder(view)
-        courseInfoDialog = AlertDialog.Builder(this)
-            .setView(view)
-            .create()
-    }
-
-    class CourseInfoViewHolder(view: View) {
-        private val location: TextView = view.findViewById(R.id.location)
-        private val time: TextView = view.findViewById(R.id.time)
-        private val teacher: TextView = view.findViewById(R.id.teacher)
-        private val intro: TextView = view.findViewById(R.id.intro)
-        private val title: TextView = view.findViewById(R.id.title)
-
-        fun bind(data: Course) {
-            title.text = data.name
-            if (data.location.isBlank()) location.visibility = View.GONE
-            else {
-                location.visibility = View.VISIBLE
-                location.text = data.location
-            }
-            time.text = CourseUtils.getTime(data)
-            teacher.text = data.teacher
-            if (data.intro.isBlank()) intro.visibility = View.GONE
-            else {
-                intro.visibility = View.VISIBLE
-                intro.text = data.intro
-            }
-        }
+    private fun showDialog(courses: List<Course>) {
+        courseDetailsDialog.show(courses)
     }
 }

@@ -15,6 +15,7 @@ import com.wegdut.wegdut.MyLog
 import com.wegdut.wegdut.R
 import com.wegdut.wegdut.data.edu.course.CourseStatus
 import com.wegdut.wegdut.data.edu.course.DayCourse
+import com.wegdut.wegdut.dialog.CourseDetailsDialog
 import com.wegdut.wegdut.ui.home.HomeAdapter
 import com.wegdut.wegdut.utils.CourseUtils
 import com.wegdut.wegdut.utils.DateUtils
@@ -49,6 +50,12 @@ class CourseWrapper(context: Context, attrs: AttributeSet?) : FrameLayout(contex
             field = value
             onUpdate()
         }
+    private val courseDetailsDialog = CourseDetailsDialog(context)
+
+    override fun onDetachedFromWindow() {
+        courseDetailsDialog.dismiss()
+        super.onDetachedFromWindow()
+    }
 
     @SuppressLint("SetTextI18n")
     private fun onUpdate() {
@@ -167,6 +174,9 @@ class CourseWrapper(context: Context, attrs: AttributeSet?) : FrameLayout(contex
         for (c in course.course) {
             val item =
                 LayoutInflater.from(context).inflate(R.layout.item_home_course_item, wrapper, false)
+            item.setOnClickListener {
+                courseDetailsDialog.show(listOf(c))
+            }
             val label = item.findViewById<View>(R.id.label)
             val status = CourseUtils.status(c)
             if (status == CourseStatus.FINISHED) label.isSelected = true
