@@ -5,31 +5,30 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
 import com.wegdut.wegdut.R
 import com.wegdut.wegdut.data.edu.course.Course
 import com.wegdut.wegdut.utils.CourseUtils
 
-class CourseInfoWrapper(context: Context, attrs: AttributeSet?) : ViewSwitcher(context, attrs) {
+class CourseInfoWrapper(context: Context, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
-    private val viewHolders = mutableListOf<ViewHolder>()
+    private val viewHolder: ViewHolder
+    private var courses: List<Course>? = null
+
+    init {
+        val v = LayoutInflater.from(context).inflate(R.layout.item_course_info, this, false)
+        addView(v)
+        viewHolder = ViewHolder(v)
+    }
 
     fun setCourses(courses: List<Course>) {
-        if (childCount < courses.size) {
-            val layoutInflater = LayoutInflater.from(context)
-            for (i in childCount until courses.size) {
-                val v = layoutInflater.inflate(R.layout.item_course_info, this, false)
-                viewHolders.add(ViewHolder(v))
-                addView(v)
-            }
-        } else {
-            for (i in childCount - 1 downTo courses.size) {
-                removeViewAt(i)
-                viewHolders.removeLast()
-            }
-        }
-        for (i in courses.zip(viewHolders))
-            i.second.bind(i.first)
+        this.courses = courses
+    }
+
+    fun show(pos: Int) {
+        val c = courses?.getOrNull(pos) ?: return
+        viewHolder.bind(c)
     }
 
     private class ViewHolder(view: View) {
