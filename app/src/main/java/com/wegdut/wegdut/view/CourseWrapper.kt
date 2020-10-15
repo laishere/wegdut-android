@@ -190,18 +190,16 @@ class CourseWrapper(context: Context, attrs: AttributeSet?) : FrameLayout(contex
     }
 
     private fun calculateCourseProgress(course: DayCourse): Float {
-        var lastTime = 0
+        var lastTime = 0L
         var progress = 0f
-        val now = DateUtils.getTimeInSecond(Date())
+        val now = System.currentTimeMillis()
         for (c in course.course) {
-            val t = CourseUtils.getTimeInSecond(c)
-            if (now > t.first) progress += 1f
+            if (now > c.start.time) progress += 1f
             else {
-                progress += (now - lastTime).toFloat() / (t.first - lastTime)
+                progress += (now - lastTime).toFloat() / (c.start.time - lastTime)
                 break
             }
-            if (now <= t.second) break
-            lastTime = t.second
+            lastTime = c.end.time
         }
         return progress
     }

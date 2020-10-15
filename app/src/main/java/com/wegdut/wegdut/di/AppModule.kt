@@ -2,7 +2,7 @@ package com.wegdut.wegdut.di
 
 import android.app.Application
 import android.content.Context
-import com.wegdut.wegdut.room.v1.AppDatabaseV1
+import com.wegdut.wegdut.room.v2.AppDatabaseV2
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -13,7 +13,7 @@ class AppModule {
 
     @Singleton
     @Provides
-    fun appDatabase(application: Application) = AppDatabaseV1.getInstance(application)
+    fun appDatabase(application: Application) = AppDatabaseV2.getInstance(application)
 
     @Module
     interface BindModule {

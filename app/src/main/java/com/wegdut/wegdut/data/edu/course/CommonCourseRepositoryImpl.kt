@@ -4,6 +4,7 @@ import com.wegdut.wegdut.api.EduApi
 import com.wegdut.wegdut.room.v1.edu.course.*
 import com.wegdut.wegdut.room.v1.edu.course.DayCourseEntity.Companion.toEntity
 import com.wegdut.wegdut.utils.ApiUtils.extract
+import com.wegdut.wegdut.utils.CourseUtils
 import com.wegdut.wegdut.utils.DateUtils
 import java.util.*
 import javax.inject.Inject
@@ -69,13 +70,11 @@ class CommonCourseRepositoryImpl @Inject constructor() : CommonCourseRepository 
             val d = Date(t)
             val k = Pair(c.week, c.weekDay)
             if (k !in map) map[k] = mutableListOf()
-            map[k]!!.add(
-                Course(d, c.start, c.end, c.name, c.teacher, c.location, c.intro)
-            )
+            map[k]!!.add(CourseUtils.toCourse(d, c))
         }
         val courseMap = mutableMapOf<Date, DayCourse>()
         for (i in map) {
-            val d = i.value[0].date
+            val d = DateUtils.onlyDate(i.value.first().start)
             i.value.sortBy { it.from }
             courseMap[d] = DayCourse(d, i.key.first, i.key.second, "", i.value)
         }
@@ -99,7 +98,7 @@ class CommonCourseRepositoryImpl @Inject constructor() : CommonCourseRepository 
                 d.weekDay = weekDay
                 d.label = label
                 d.date = date
-                for (c in d.course) c.date = date
+                for (c in d.course) CourseUtils.exchangeCourse(date, c)
                 courseMap[date] = d
             }
         }

@@ -3,7 +3,8 @@ package com.wegdut.wegdut.data.edu.course
 import java.util.*
 
 data class Course(
-    var date: Date,
+    var start: Date,
+    var end: Date,
     val from: Int,
     val to: Int,
     val name: String,

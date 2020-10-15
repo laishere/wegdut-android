@@ -2,6 +2,7 @@ package com.wegdut.wegdut.utils
 
 import android.graphics.Color
 import com.wegdut.wegdut.data.edu.course.Course
+import com.wegdut.wegdut.data.edu.course.CourseDto
 import com.wegdut.wegdut.data.edu.course.CourseStatus
 import java.util.*
 import kotlin.math.absoluteValue
@@ -37,14 +38,6 @@ object CourseUtils {
     }
 
     /**
-     * 返回课程时间（不包括日期），单位为秒
-     */
-    fun getTimeInSecond(course: Course): Pair<Int, Int> {
-        val t = calTime(course.from, course.to)
-        return t.first * 60 to t.second * 60
-    }
-
-    /**
      * @param from  开始节次
      * @param to    结束节次，包含
      * 返回课程时间，单位为分钟
@@ -55,12 +48,29 @@ object CourseUtils {
         return startTime to startTime + totalTime
     }
 
+    fun toCourse(date: Date, dto: CourseDto): Course {
+        val t = calTime(dto.start, dto.end)
+        val minuteToMillis = 60 * 1000L
+        val s = date.time + t.first * minuteToMillis
+        val e = date.time + t.second * minuteToMillis
+        return dto.run {
+            Course(Date(s), Date(e), start, end, name, teacher, location, intro)
+        }
+    }
+
+    fun exchangeCourse(date: Date, course: Course) {
+        val t = calTime(course.from, course.to)
+        val minuteToMillis = 60 * 1000L
+        val s = date.time + t.first * minuteToMillis
+        val e = date.time + t.second * minuteToMillis
+        course.start = Date(s)
+        course.end = Date(e)
+    }
+
     fun status(course: Course): CourseStatus {
         val now = Date().time
-        val min2ms = 60 * 1000
-        val t = calTime(course.from, course.to)
-        val s = course.date.time + t.first * min2ms
-        val e = course.date.time + t.second * min2ms
+        val s = course.start.time
+        val e = course.end.time
         return when {
             e < now -> CourseStatus.FINISHED
             s > now -> CourseStatus.PENDING
