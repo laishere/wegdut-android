@@ -196,7 +196,8 @@ class CourseWrapper(context: Context, attrs: AttributeSet?) : FrameLayout(contex
         for (c in course.course) {
             if (now > c.start.time) progress += 1f
             else {
-                progress += (now - lastTime).toFloat() / (c.start.time - lastTime)
+                if (now > lastTime)
+                    progress += (now - lastTime).toFloat() / (c.start.time - lastTime)
                 break
             }
             lastTime = c.end.time
