@@ -1,6 +1,4 @@
-
-  
-## WEGDUT 安卓项目   
+# WEGDUT 安卓项目
 >WEGDUT是一款校园APP，作者是广东工业大学计科学生。  
 >
 >[官网 wegdut.com](https://wegdut.com/) 
@@ -8,8 +6,9 @@
 >[联系作者：laishere@163.com](mailto:laishere@163.com)   
 
 ***仅供学习使用，请勿用于商业用途***  
-  ### 项目概览  
-| - | |  
+
+### 项目概览
+| - | |
 |-------|-------|  
 |语言 |`Kotlin`|  
 |架构 |`MVP`|  
