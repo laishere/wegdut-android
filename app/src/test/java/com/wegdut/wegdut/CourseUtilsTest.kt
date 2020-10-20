@@ -26,16 +26,9 @@ class CourseUtilsTest {
             "18:30 - 20:55"
         )
         val actual = testCases.map {
+            val now = Date()
             CourseUtils.getTime(
-                Course(
-                    Date(),
-                    it.first,
-                    it.second,
-                    "",
-                    "",
-                    "",
-                    ""
-                )
+                Course(now, now, it.first, it.second, "", "", "")
             )
         }
         Assert.assertEquals(expected, actual)
