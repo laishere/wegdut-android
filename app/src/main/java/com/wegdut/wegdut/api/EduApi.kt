@@ -10,7 +10,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface EduApi {
-    @GET("/course")
+    @GET("/course?v2")
     fun getCourse(@Query("term") term: String?): Call<ResultWrapper<CourseTableDto>>
 
     @GET("/exam-plan")

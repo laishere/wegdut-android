@@ -86,41 +86,38 @@ class CommonCourseRepositoryImpl @Inject constructor() : CommonCourseRepository 
         dto: CourseTableDto,
         courseMap: MutableMap<Date, DayCourse>
     ): MutableList<CourseBreakEntity> {
+        val newCourseMap = mutableMapOf<Date, DayCourse>()
         val startWeek = DateUtils.relativeWeekOfDate(dto.startDate)
-        val transform = { d: DayCourse?, date: Date, label: String ->
-            val week = DateUtils.relativeWeekOfDate(date) - startWeek + 1
-            val weekDay = DateUtils.weekDay(date) + 1
-            if (d == null) {
-                val course = DayCourse(date, week, weekDay, label, emptyList())
-                courseMap[date] = course
-            } else {
-                d.week = week
-                d.weekDay = weekDay
-                d.label = label
-                d.date = date
-                for (c in d.course) CourseUtils.exchangeCourse(date, c)
-                courseMap[date] = d
-            }
-        }
         val courseBreaks = mutableListOf<CourseBreakEntity>()
-        val addToBreaks = { type: String, date: Date ->
-            if ("休" in type) {
+        for (t in dto.transformation) {
+            val week = DateUtils.relativeWeekOfDate(t.date) - startWeek + 1
+            val weekDay = DateUtils.weekDay(t.date) + 1
+            if (t.sourceDate == null) {
+                val course = DayCourse(t.date, week, weekDay, t.type, emptyList())
+                newCourseMap[t.date] = course
+            } else {
+                val course = courseMap.remove(t.sourceDate)
+                course?.let {
+                    it.week = week
+                    it.weekDay = weekDay
+                    it.date = t.date
+                    for (c in it.course) CourseUtils.exchangeCourse(t.date, c)
+                    newCourseMap[t.date] = it
+                }
+                // 源课程可能不存在，直接对调课前的对应日期课程label进行赋值
+                courseMap[t.date]?.let { it.label = t.type }
+            }
+            if ("休" in t.type) {
                 val courseBreakEntity =
                     CourseBreakEntity(
-                        date,
+                        t.date,
                         term
                     )
                 courseBreaks.add(courseBreakEntity)
             }
         }
-        for (t in dto.transformation) {
-            val a = courseMap[t.dateB]
-            val b = courseMap[t.dateA]
-            transform(a, t.dateA, t.typeA)
-            transform(b, t.dateB, t.typeB)
-            addToBreaks(t.typeA, t.dateA)
-            addToBreaks(t.typeB, t.dateB)
-        }
+        for (i in newCourseMap)
+            courseMap[i.key] = i.value
         return courseBreaks
     }
 }

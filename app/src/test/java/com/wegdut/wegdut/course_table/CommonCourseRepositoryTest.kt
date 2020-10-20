@@ -8,6 +8,7 @@ import com.wegdut.wegdut.api.EduApi
 import com.wegdut.wegdut.data.edu.course.*
 import com.wegdut.wegdut.room.v1.edu.course.*
 import com.wegdut.wegdut.room.v1.edu.course.DayCourseEntity.Companion.toEntity
+import com.wegdut.wegdut.utils.CourseUtils
 import org.junit.Before
 import org.junit.Test
 import org.mockito.InOrder
@@ -62,7 +63,8 @@ class CommonCourseRepositoryTest {
         )
         val otherDate = dateFormat.parse("2020-9-15")!!
         val courseTransforms = listOf(
-            CourseTransformationDto("休", "补", startDate, otherDate)
+            CourseTransformationDto(startDate, null, "休"),
+            CourseTransformationDto(otherDate, startDate, "补")
         )
         val holidays = listOf(
             HolidayDto(
@@ -81,9 +83,7 @@ class CommonCourseRepositoryTest {
         // 清除旧缓存
         order.verify(courseDao).deleteByTerm(term)
         // 保存课程
-        val course = dtoCourses[0].run {
-            Course(otherDate, start, end, name, teacher, location, intro)
-        }
+        val course = CourseUtils.toCourse(otherDate, dtoCourses[0])
         // 第1周星期一的课程经过调课处理之后应当变成2020-9-15号也就是第3周星期二的课而第1周星期一变为休息日
         val dayCourse1 = DayCourse(startDate, 1, 1, "休", emptyList())
         val dayCourse2 = DayCourse(otherDate, 3, 2, "补", listOf(course))
