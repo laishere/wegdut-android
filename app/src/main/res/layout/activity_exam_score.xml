@@ -89,7 +89,10 @@
                 app:barWidth="15dp"
                 app:color="@color/grey_800"
                 app:fillGap="false"
-                tools:ignore="SpUsage" />
+                tools:ignore="SpUsage"
+                android:paddingStart="@dimen/activity_horizontal_margin"
+                android:paddingEnd="@dimen/activity_horizontal_margin"
+                />
 
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/view_pager"
