@@ -1,7 +1,6 @@
 package com.wegdut.wegdut.di
 
 import com.wegdut.wegdut.ui.email_register.EmailRegisterFragment
-import com.wegdut.wegdut.ui.email_register.EmailRegisterModule
 import com.wegdut.wegdut.ui.exam_score.ExamScoreFragment
 import com.wegdut.wegdut.ui.exam_score.ExamScoreFragmentModule
 import com.wegdut.wegdut.ui.home.HomeFragment
@@ -17,7 +16,6 @@ import com.wegdut.wegdut.ui.message.system.SystemModule
 import com.wegdut.wegdut.ui.post.PostFragment
 import com.wegdut.wegdut.ui.post.PostModule
 import com.wegdut.wegdut.ui.student_register.StudentRegisterFragment
-import com.wegdut.wegdut.ui.student_register.StudentRegisterModule
 import com.wegdut.wegdut.ui.user.UserFragment
 import com.wegdut.wegdut.ui.user.UserModule
 import dagger.Module
@@ -58,10 +56,10 @@ interface FragmentBindingModule {
     fun examScore(): ExamScoreFragment
 
     @FragmentScoped
-    @ContributesAndroidInjector(modules = [EmailRegisterModule::class])
+    @ContributesAndroidInjector(modules = [EmptyModule::class])
     fun emailRegister(): EmailRegisterFragment
 
     @FragmentScoped
-    @ContributesAndroidInjector(modules = [StudentRegisterModule::class])
+    @ContributesAndroidInjector(modules = [EmptyModule::class])
     fun studentRegister(): StudentRegisterFragment
 }
