@@ -1,7 +1,7 @@
 package com.wegdut.wegdut.api
 
 import com.wegdut.wegdut.data.ResultWrapper
-import com.wegdut.wegdut.data.student_verification.StudentDto
+import com.wegdut.wegdut.data.student_verification.StudentVerificationDto
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -24,7 +24,7 @@ interface StudentVerificationApi {
     fun getCaptcha(): Call<ResponseBody>
 
     @POST("/student-verification")
-    fun saveStudentInfo(@Body dto: StudentDto): Call<ResultWrapper<String?>>
+    fun saveStudentInfo(@Body dto: StudentVerificationDto): Call<ResultWrapper<String?>>
 
     @GET("/is-student-verified")
     fun isStudentVerified(): Call<ResultWrapper<Boolean>>

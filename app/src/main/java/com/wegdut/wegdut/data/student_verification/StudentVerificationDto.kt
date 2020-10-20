@@ -1,6 +1,6 @@
 package com.wegdut.wegdut.data.student_verification
 
-data class StudentDto(
+data class StudentVerificationDto(
     val number: String,
     val password: String
 )

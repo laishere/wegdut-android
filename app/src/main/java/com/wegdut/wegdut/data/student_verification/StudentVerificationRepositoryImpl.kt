@@ -48,7 +48,7 @@ class StudentVerificationRepositoryImpl @Inject constructor() : StudentVerificat
         throw MyException(error)
     }
 
-    override fun saveStudentInfo(dto: StudentDto) {
+    override fun saveStudentInfo(dto: StudentVerificationDto) {
         api.saveStudentInfo(dto).extract()
     }
 

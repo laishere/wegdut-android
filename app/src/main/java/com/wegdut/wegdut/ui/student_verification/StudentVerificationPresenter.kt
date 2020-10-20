@@ -2,7 +2,7 @@ package com.wegdut.wegdut.ui.student_verification
 
 import com.wegdut.wegdut.MyException
 import com.wegdut.wegdut.MyLog
-import com.wegdut.wegdut.data.student_verification.StudentDto
+import com.wegdut.wegdut.data.student_verification.StudentVerificationDto
 import com.wegdut.wegdut.data.student_verification.StudentVerificationRepository
 import javax.inject.Inject
 
@@ -53,7 +53,7 @@ class StudentVerificationPresenter @Inject constructor() : StudentVerificationCo
             view?.setSubmitEnabled(false)
             tryIt({
                 io {
-                    repository.saveStudentInfo(StudentDto(username, password))
+                    repository.saveStudentInfo(StudentVerificationDto(username, password))
                 }
                 view?.setSaveStudentInfoError(null)
                 view?.onStudentInfoSaved()
