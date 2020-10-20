@@ -1,6 +1,8 @@
 package com.wegdut.wegdut.ui.course_table
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.Gravity
@@ -10,7 +12,10 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.NotificationManagerCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wegdut.wegdut.CourseService
 import com.wegdut.wegdut.R
 import com.wegdut.wegdut.data.course_table.CourseTableData
 import com.wegdut.wegdut.data.edu.Term
@@ -47,6 +52,8 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
     private lateinit var errorTextView: TextView
     private lateinit var termWrapper: View
     private lateinit var termTextView: TextView
+    private lateinit var courseNotificationBtn: View
+    private lateinit var sharedPreferences: SharedPreferences
     private val termOptionDialog = CourseTermOptionDialog(this)
     private val courseDetailsDialog = CourseDetailsDialog(this)
     private val dayViews = mutableListOf<DayViewHolder>()
@@ -74,6 +81,7 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_course)
+        sharedPreferences = getSharedPreferences(packageName, MODE_PRIVATE)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         viewPager2 = findViewById(R.id.view_pager)
         viewPager2.adapter = adapter
@@ -123,6 +131,16 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
                     termOptionDialog.dismiss()
                 }
             }
+
+        courseNotificationBtn = findViewById(R.id.btn_notification)
+        courseNotificationBtn.setOnClickListener {
+            if (!it.isSelected)
+                showNotificationConfirm()
+            else {
+                it.isSelected = false
+                updateCourseNotificationSetting()
+            }
+        }
         presenter.start()
         presenter.subscribe(this)
     }
@@ -132,6 +150,50 @@ class CourseTableActivity : DaggerAppCompatActivity(), CourseTableContract.View 
         presenter.stop()
         courseDetailsDialog.dismiss()
         super.onDestroy()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        initCourseNotificationSetting()
+        clearNotification()
+    }
+
+    private fun showNotificationConfirm() {
+        MaterialAlertDialogBuilder(this)
+            .setMessage("是否设置课程提醒？")
+            .setPositiveButton("设置") { _, _ ->
+                courseNotificationBtn.isSelected = true
+                updateCourseNotificationSetting()
+            }
+            .setNegativeButton("取消") { _, _ ->
+            }
+            .show()
+    }
+
+    private fun updateCourseNotificationSetting() {
+        sharedPreferences.edit()
+            .putBoolean(CourseService.COURSE_NOTIFICATION_KEY, courseNotificationBtn.isSelected)
+            .apply()
+        onCourseNotificationChanged()
+    }
+
+    private fun initCourseNotificationSetting() {
+        courseNotificationBtn.isSelected =
+            sharedPreferences.getBoolean(CourseService.COURSE_NOTIFICATION_KEY, false)
+        onCourseNotificationChanged()
+    }
+
+    private fun clearNotification() {
+        with(NotificationManagerCompat.from(this)) {
+            cancel(CourseService.COURSE_NOTIFICATION_ID)
+        }
+    }
+
+    private fun onCourseNotificationChanged() {
+        val service = Intent(this, CourseService::class.java)
+        if (courseNotificationBtn.isSelected)
+            startService(service)
+        else stopService(service)
     }
 
     private fun showTerms() {

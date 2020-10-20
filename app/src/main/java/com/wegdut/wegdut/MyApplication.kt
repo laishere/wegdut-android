@@ -1,6 +1,7 @@
 package com.wegdut.wegdut
 
 import android.content.Context
+import android.content.Intent
 import androidx.multidex.MultiDex
 import com.tencent.bugly.crashreport.CrashReport
 import com.wegdut.wegdut.config.Config
@@ -39,8 +40,11 @@ class MyApplication : DaggerApplication() {
     override fun onCreate() {
         ApiUtils.initApi(this)
         super.onCreate()
-        CrashReport.initCrashReport(applicationContext, Config.buglyAppId, BuildConfig.DEBUG)
+        if (!BuildConfig.DEBUG) {
+            CrashReport.initCrashReport(applicationContext, Config.buglyAppId, BuildConfig.DEBUG)
+        }
         loadUser()
+        startService(Intent(this, CourseService::class.java))
     }
 
     override fun attachBaseContext(base: Context?) {
@@ -56,4 +60,6 @@ class MyApplication : DaggerApplication() {
             }
         }
     }
+
+
 }

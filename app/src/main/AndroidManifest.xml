@@ -56,6 +56,8 @@
         <activity android:name="com.wegdut.wegdut.ui.news_details.NewsDetailsActivity" />
         <activity android:name="com.wegdut.wegdut.ui.user_modification.UserModificationActivity" />
         <activity android:name=".ui.exam_score.ExamScoreActivity" />
+
+        <service android:name=".CourseService" />
     </application>
 
 </manifest>

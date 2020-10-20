@@ -54,4 +54,7 @@
     <string name="load_done">- THE END -</string>
     <string name="load_failed">(╥╯^╰╥) 加载失败</string>
     <string name="comment_default_hint">分享你的想法吧</string>
+    <string name="course_channel_name">WEGDUT课程</string>
+    <string name="course_channel_description">WEGDUT课程提醒</string>
+    <string name="course_notification_template"><b>%s</b>  %s<span style="color=#ddd"> / </span>%s</string>
 </resources>

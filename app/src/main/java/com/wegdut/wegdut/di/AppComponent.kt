@@ -16,7 +16,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         DatabaseModule::class,
         ApiModule::class,
-        StatelessRepositoryModule::class
+        StatelessRepositoryModule::class,
+        ServiceBindingModule::class
     ]
 )
 interface AppComponent : AndroidInjector<MyApplication> {
