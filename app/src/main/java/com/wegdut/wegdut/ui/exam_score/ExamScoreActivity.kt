@@ -84,7 +84,7 @@ class ExamScoreActivity : DaggerAppCompatActivity(), ExamScoreActivityContract.V
         var b = BigDecimal(0) // 学分 x 绩点 之和
         var credit = BigDecimal(0) // 学分之和
         for (s in scores) {
-            if (s.gradePoint.isNotBlank() && s.credit.isNotBlank()) {
+            if (s.gradePoint.isNotBlank() && s.credit.isNotBlank() && "补考" !in s.examType) {
                 val c = BigDecimal(s.credit)
                 b += BigDecimal(s.gradePoint) * c
                 credit += c
