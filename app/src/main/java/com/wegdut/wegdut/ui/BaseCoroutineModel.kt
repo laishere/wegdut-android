@@ -4,7 +4,7 @@ import com.wegdut.wegdut.MyLog
 import kotlinx.coroutines.*
 
 abstract class BaseCoroutineModel {
-    var scope = CoroutineScope(Dispatchers.Main)
+    open var scope = CoroutineScope(Dispatchers.Main)
     protected val jobs = Jobs()
     private var isAlive = false
 
