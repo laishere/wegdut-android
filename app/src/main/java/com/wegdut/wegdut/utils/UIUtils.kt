@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.Resources
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
-import android.os.Build
 import android.util.SparseIntArray
 import android.util.TypedValue
 import android.view.View
@@ -135,28 +134,23 @@ object UIUtils {
     }
 
     fun layoutFullScreen(view: View) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            val flags = view.systemUiVisibility
-            view.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-        }
+        val flags = view.systemUiVisibility
+        view.systemUiVisibility = flags or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
     }
 
     fun imageFullScreen(view: View, fullscreen: Boolean) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            var flags: Int
-            if (fullscreen) {
-                flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
-                        View.SYSTEM_UI_FLAG_FULLSCREEN or
-                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT)
-                    flags = flags or View.SYSTEM_UI_FLAG_IMMERSIVE
-            } else {
-                flags = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
-                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-            }
-            view.systemUiVisibility = flags
+        var flags: Int
+        if (fullscreen) {
+            flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                    View.SYSTEM_UI_FLAG_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            flags = flags or View.SYSTEM_UI_FLAG_IMMERSIVE
+        } else {
+            flags = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         }
+        view.systemUiVisibility = flags
     }
 
     fun getAttrColor(context: Context, attr: Int): Int {
