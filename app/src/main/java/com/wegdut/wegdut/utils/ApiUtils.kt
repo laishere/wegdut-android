@@ -10,6 +10,7 @@ import com.wegdut.wegdut.BuildConfig
 import com.wegdut.wegdut.MyException
 import com.wegdut.wegdut.config.Config
 import com.wegdut.wegdut.data.ResultWrapper
+import okhttp3.ConnectionPool
 import okhttp3.JavaNetCookieJar
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -42,6 +43,7 @@ object ApiUtils {
         val clientBuilder = OkHttpClient.Builder()
             .cookieJar(cookieJar)
             .readTimeout(40L, TimeUnit.SECONDS)
+            .connectionPool(ConnectionPool(8, 5L, TimeUnit.MINUTES))
         if (BuildConfig.DEBUG) {
             val httpLoggingInterceptor = HttpLoggingInterceptor()
             httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.HEADERS
