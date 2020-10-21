@@ -39,13 +39,22 @@ class OSSRepository @Inject constructor() : StorageRepository {
     private var ossClientInstance: OSSClient? = null
     private val ossClient: OSSClient
         get() {
-            if (ossClientInstance == null)
-                initClient()
-            return ossClientInstance!!
+            synchronized(this) {
+                if (ossClientInstance == null)
+                    initClient()
+                return ossClientInstance!!
+            }
         }
 
     override fun uploadImage(image: Uri, quality: Int, sizeLimit: Int): String {
+        refreshClient()
         return putImage(image, quality, sizeLimit)
+    }
+
+    private fun refreshClient() {
+        synchronized(this) {
+            ossClientInstance = null
+        }
     }
 
     private fun initClient() {
