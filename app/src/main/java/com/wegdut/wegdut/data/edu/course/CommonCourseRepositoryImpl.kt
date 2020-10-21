@@ -101,6 +101,7 @@ class CommonCourseRepositoryImpl @Inject constructor() : CommonCourseRepository 
                     it.week = week
                     it.weekDay = weekDay
                     it.date = t.date
+                    it.label = t.type
                     for (c in it.course) CourseUtils.exchangeCourse(t.date, c)
                     newCourseMap[t.date] = it
                 }
