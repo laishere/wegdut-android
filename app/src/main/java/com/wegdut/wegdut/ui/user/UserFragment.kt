@@ -23,6 +23,7 @@ import com.wegdut.wegdut.drawable.VerticalDashedLine
 import com.wegdut.wegdut.ui.BaseDaggerFragment
 import com.wegdut.wegdut.ui.ListRVAdapter
 import com.wegdut.wegdut.ui.exam_score.ExamScoreActivity
+import com.wegdut.wegdut.ui.library_code.LibraryCodeActivity
 import com.wegdut.wegdut.ui.login.LoginActivity
 import com.wegdut.wegdut.ui.setting.SettingActivity
 import com.wegdut.wegdut.utils.DateUtils
@@ -146,6 +147,7 @@ class UserFragment : BaseDaggerFragment(R.layout.fragment_user), UserContract.Vi
         override fun onClick(view: View, pos: Int) {
             when (menuAdapter.items!![pos].itemId) {
                 R.id.score -> start(ExamScoreActivity::class)
+                R.id.library -> start(LibraryCodeActivity::class)
                 else -> MessageUtils.info(context, "即将上线")
             }
         }

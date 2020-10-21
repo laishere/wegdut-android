@@ -4,6 +4,8 @@ import com.wegdut.wegdut.ui.course_table.CourseTableActivity
 import com.wegdut.wegdut.ui.course_table.CourseTableModule
 import com.wegdut.wegdut.ui.exam_score.ExamScoreActivity
 import com.wegdut.wegdut.ui.exam_score.ExamScoreActivityModule
+import com.wegdut.wegdut.ui.library_code.LibraryCodeActivity
+import com.wegdut.wegdut.ui.library_code.LibraryCodeModule
 import com.wegdut.wegdut.ui.login.LoginActivity
 import com.wegdut.wegdut.ui.login.LoginModule
 import com.wegdut.wegdut.ui.news.NewsActivity
@@ -63,4 +65,8 @@ interface ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = [StudentVerificationModule::class])
     fun studentVerificationCheck(): StudentVerificationCheckActivity
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = [LibraryCodeModule::class])
+    fun libraryCode(): LibraryCodeActivity
 }

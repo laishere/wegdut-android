@@ -146,4 +146,7 @@ dependencies {
     // work manager
 //    def work_version = "2.4.0"
 //    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    // zxing
+    implementation 'com.google.zxing:core:3.4.1'
 }
