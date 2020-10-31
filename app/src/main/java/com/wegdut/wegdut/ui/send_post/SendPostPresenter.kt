@@ -22,6 +22,7 @@ class SendPostPresenter @Inject constructor() : SendPostContract.Presenter() {
         view?.showLoadingDialog()
         launch {
             tryIt({
+                view?.setAction("正在处理")
                 io { sendPostRepository.canSendPost() }
                 view?.showLoadingDialog()
                 val imageUrls = mutableListOf<String>()
